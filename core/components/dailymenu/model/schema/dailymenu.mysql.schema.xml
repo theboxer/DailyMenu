@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="dailymenu" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="dailymenu">
+    <object class="DailyMenuDish" table="dailymenu_dish" extends="xPDOSimpleObject">
+        <field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
+        <field key="price" dbtype="varchar" precision="32" phptype="string" null="false" default="" />
+        <field key="date" dbtype="datetime" phptype="datetime" null="false" />
+        <field key="bold" dbtype="tinyint" precision="1" phptype="boolean" null="false" default="0" />
+        <field key="position" dbtype="int" precision="3" phptype="integer" null="false"/>
+    </object>    
+</model>
