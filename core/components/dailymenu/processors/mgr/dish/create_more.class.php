@@ -39,6 +39,8 @@ class DailyMenuDishesCreateProcessor extends modObjectProcessor {
 
         $dishes = preg_split("/(\r\n|\n|\r)/", $dishes);
 
+        $dishesToSave = array();
+
         foreach($dishes as $dish){
             $dish = preg_replace('!\s+!', ' ', $dish);
             $matches = array();
@@ -61,12 +63,16 @@ class DailyMenuDishesCreateProcessor extends modObjectProcessor {
                 $dishObject->set('bold', 0);
                 $dishObject->set('date', $date);
                 $dishObject->set('position', count($currentDishes));
-                $dishObject->save();
+                $dishesToSave[] = $dishObject;
 
             }else{
                 $this->addFieldError('dishes',$this->modx->lexicon('dailymenu.price_err_ns'));
                 return $this->failure();
             }
+        }
+
+        foreach($dishesToSave as $dish){
+            $dish->save();
         }
 
         return $this->success();
