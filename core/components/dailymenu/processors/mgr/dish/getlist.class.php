@@ -1,6 +1,6 @@
 <?php
 /**
- * Get list Items
+ * Get list of dishes
  *
  * @package dailymenu
  * @subpackage processors

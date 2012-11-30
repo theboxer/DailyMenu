@@ -1,6 +1,6 @@
 <?php
 /**
- * Create an Item
+ * Create a dish
  * 
  * @package dailymenu
  * @subpackage processors
@@ -17,8 +17,13 @@ class DailyMenuDishCreateProcessor extends modObjectCreateProcessor {
         if ($date == $this->modx->lexicon('today')) {
             $today = new DateTime();
             $today->setTime(0,0,0);
-            $this->setProperty('date', $today->format('Y-m-d H:i:s'));
+            $date = $today->format('Y-m-d H:i:s');
+            $this->setProperty('date', $date);
         }
+
+        $dishes = $this->modx->getCollection($this->classKey, array('date' => $date));
+
+        $this->setProperty('position', count($dishes));
 
         return parent::beforeSet();
     }

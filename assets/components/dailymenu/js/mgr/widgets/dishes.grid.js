@@ -1,4 +1,4 @@
-
+Ext.QuickTips.init();
 DailyMenu.grid.Dishes = function(config) {
     config = config || {};
     Ext.applyIf(config,{
@@ -59,6 +59,7 @@ DailyMenu.grid.Dishes = function(config) {
             header: _('id')
             ,dataIndex: 'id'
             ,width: 70
+            ,hidden: true
         },{
             header: _('name')
             ,dataIndex: 'name'
@@ -67,7 +68,7 @@ DailyMenu.grid.Dishes = function(config) {
         },{
             header: _('dailymenu.price')
             ,dataIndex: 'price'
-            ,width: 250
+            ,width: 80
             ,editor: { xtype: 'textfield' }
         },{
             header: _('dailymenu.bold')
@@ -88,6 +89,10 @@ DailyMenu.grid.Dishes = function(config) {
         },{
             text: _('dailymenu.dish_create')
             ,handler: this.createItem
+            ,scope: this
+        },{
+            text: _('dailymenu.dishes_create')
+            ,handler: this.createItems
             ,scope: this
         },'->',{
             xtype: 'textfield'
@@ -146,6 +151,20 @@ Ext.extend(DailyMenu.grid.Dishes,MODx.grid.Grid,{
         this.windows.createItem.fp.getForm().reset();
         this.windows.createItem.setValues({date: Ext.getCmp('dailymenu-dishes-datepicker').value});
         this.windows.createItem.show(e.target);
+    }
+
+    ,createItems: function(btn, e){
+        if (!this.windows.createItems) {
+            this.windows.createItems = MODx.load({
+                xtype: 'dailymenu-window-dishes-create'
+                ,listeners: {
+                    'success': {fn:function() { this.refresh(); },scope:this}
+                }
+            });
+        }
+        this.windows.createItems.fp.getForm().reset();
+        this.windows.createItems.setValues({date: Ext.getCmp('dailymenu-dishes-datepicker').value});
+        this.windows.createItems.show(e.target);
     }
     ,updateItem: function(btn,e) {
         if (!this.menu.record || !this.menu.record.id) return false;
@@ -284,3 +303,52 @@ DailyMenu.window.UpdateDish = function(config) {
 };
 Ext.extend(DailyMenu.window.UpdateDish,MODx.Window);
 Ext.reg('dailymenu-window-dish-update',DailyMenu.window.UpdateDish);
+
+DailyMenu.window.CreateDishes = function(config) {
+    config = config || {};
+    this.ident = config.ident || 'dailymenu-cdishes';
+    Ext.applyIf(config,{
+        title: _('dailymenu.dishes_create')
+        ,id: this.ident
+        ,height: 150
+        ,width: 475
+        ,url: DailyMenu.config.connector_url
+        ,action: 'mgr/dish/create_more'
+        ,keys: []
+        ,fields: [{
+            xtype: 'textarea'
+            ,fieldLabel: _('dailymenu.dishes')
+            ,name: 'dishes'
+            ,id: this.ident+'-dishes'
+            ,anchor: '100%'
+            ,grow: true
+            ,growMax: 400
+            ,listeners: {
+                render: function(c){
+                    Ext.QuickTips.register({
+                        target: c.getEl(),
+                        text: _('dailymenu.dishes_create_tooltip')
+                        ,dismissDelay: 10000
+                    });
+                }
+            }
+
+        },{
+            xtype: 'datefield'
+            ,format: MODx.config.manager_date_format
+            ,fieldLabel: _('date')
+            ,emptyText: _('today')
+            ,name: 'date'
+            ,id: this.ident+'-date'
+            ,anchor: '100%'
+        }]
+    });
+    DailyMenu.window.CreateDishes.superclass.constructor.call(this,config);
+    new Ext.slider.Tip({
+        getText: function(thumb){
+            return String.format('<b>{0}% complete</b>', thumb.value);
+        }
+    });
+};
+Ext.extend(DailyMenu.window.CreateDishes,MODx.Window);
+Ext.reg('dailymenu-window-dishes-create',DailyMenu.window.CreateDishes);
