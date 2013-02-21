@@ -1,39 +1,39 @@
 {
-    name: 'DailyMenu'
-    ,folderName: 'dailymenu'
-    ,author: 'TheBoxer'
-    ,version: '1.0'
+    name: "DailyMenu"
+    ,folderName: "dailymenu"
+    ,author: "TheBoxer"
+    ,version: "1.0"
     ,package:{
         namespace: {
-            name: 'DailyMenu'
+            name: "DailyMenu"
         }
         ,action: {
-            controller: 'index'
-            ,parentController: ''
+            controller: "index"
+            ,parentController: ""
         }
         ,menu: {
-            text: 'dailymenu'
-            ,description: 'dailymenu.menu_desc'
-            ,parent: 'components'
-            ,icon: ''
+            text: "dailymenu"
+            ,description: "dailymenu.menu_desc"
+            ,parent: "components"
+            ,icon: ""
             ,menuindex: 0
-            ,params: ''
-            ,handler: ''
+            ,params: ""
+            ,handler: ""
         }
         ,systemSettings: [{
-            key: 'core_path'
-            ,name: 'core_path'
-            ,description: 'core_path.desc'
-            ,type: 'textfield'
-            ,area: 'default'
-            ,value: '/path/to/core/'
+            key: "core_path"
+            ,name: "core_path"
+            ,description: "core_path.desc"
+            ,type: "textfield"
+            ,area: "default"
+            ,value: "/path/to/core/"
         },{
-            key: 'assets_url'
-            ,name: 'assets_url'
-            ,description: 'assets_url.desc'
-            ,type: 'textfield'
-            ,area: 'default'
-            ,value: '/path/to/assets/'
+            key: "assets_url"
+            ,name: "assets_url"
+            ,description: "assets_url.desc"
+            ,type: "textfield"
+            ,area: "default"
+            ,value: "/path/to/assets/"
         }]
     }
     ,elements: {
