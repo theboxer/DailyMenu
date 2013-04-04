@@ -1,6 +1,6 @@
 {
     "name": "DailyMenu"
-    ,"folderName": "dailymenu"
+    ,"lowCaseName": "dailymenu"
     ,"author": "TheBoxer"
     ,"version": "1.0"
     ,"package":{
@@ -21,19 +21,12 @@
             ,"handler": ""
         }
         ,"systemSettings": [{
-            "key": "core_path"
-            ,"name": "core_path"
-            ,"description": "core_path.desc"
+            "key": "test_key"
+            ,"name": "test_name"
+            ,"description": "test_key.desc"
             ,"type": "textfield"
             ,"area": "default"
-            ,"value": "/path/to/core/"
-        },{
-            "key": "assets_url"
-            ,"name": "assets_url"
-            ,"description": "assets_url.desc"
-            ,"type": "textfield"
-            ,"area": "default"
-            ,"value": "/path/to/assets/"
+            ,"value": "ti works"
         }]
     }
     ,"elements": {
