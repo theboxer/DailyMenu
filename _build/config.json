@@ -10,8 +10,8 @@
         ,"actions": [{
             "id": 1
             ,"controller": "index"
-            ,"haslayout": 1
-            ,"lang_topics": "DailyMenu:default"
+            ,"hasLayout": 1
+            ,"langTopics": "DailyMenu:default"
             ,"assets": ""
         }]
         ,"menus": [{
