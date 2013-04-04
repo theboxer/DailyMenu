@@ -4,14 +4,11 @@
     ,"author": "TheBoxer"
     ,"version": "1.0"
     ,"package":{
-        "namespace": {
-            "name": "DailyMenu"
-        }
-        ,"actions": [{
+        "actions": [{
             "id": 1
             ,"controller": "index"
             ,"hasLayout": 1
-            ,"langTopics": "DailyMenu:default"
+            ,"langTopics": "dailymenu:default"
             ,"assets": ""
         }]
         ,"menus": [{
