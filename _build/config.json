@@ -11,7 +11,7 @@
             "id": 1
             ,"controller": "index"
             ,"haslayout": 1
-            ,"lang_topics": "default"
+            ,"lang_topics": "DailyMenu:default"
             ,"assets": ""
         }]
         ,"menus": [{
@@ -30,7 +30,7 @@
             ,"description": "test_key.desc"
             ,"type": "textfield"
             ,"area": "default"
-            ,"value": "ti works"
+            ,"value": "it works"
         }]
     }
     ,"elements": {
