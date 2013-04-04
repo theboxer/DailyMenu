@@ -7,11 +7,12 @@
         "namespace": {
             "name": "DailyMenu"
         }
-        ,"action": {
-            "controller": "index"
+        ,"actions": [{
+            "id": 1
+            ,"controller": "index"
             ,"parentController": ""
-        }
-        ,"menu": {
+        }]
+        ,"menus": [{
             "text": "dailymenu"
             ,"description": "dailymenu.menu_desc"
             ,"parent": "components"
@@ -19,7 +20,8 @@
             ,"menuIndex": 0
             ,"params": ""
             ,"handler": ""
-        }
+            ,"action": 1
+        }]
         ,"systemSettings": [{
             "key": "test_key"
             ,"name": "test_name"
