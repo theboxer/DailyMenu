@@ -23,8 +23,6 @@
         }]
         ,"systemSettings": [{
             "key": "test_key"
-            ,"name": "test_name"
-            ,"description": "test_key.desc"
             ,"type": "textfield"
             ,"area": "default"
             ,"value": "it works"
