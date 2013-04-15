@@ -1,8 +1,9 @@
 {
     "name": "DailyMenu"
     ,"lowCaseName": "dailymenu"
+    ,"description": "Manage daily menu of your restaurant easily."
     ,"author": "TheBoxer"
-    ,"version": "1.0"
+    ,"version": "0.1 alpha"
     ,"package":{
         "actions": [{
             "id": 1
@@ -27,5 +28,9 @@
             ,"area": "default"
             ,"value": "it works"
         }]
+    }
+    ,"database": {
+        "prefix": "modx_"
+        ,"tables": ["DailyMenuDish"]
     }
 }
