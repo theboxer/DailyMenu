@@ -33,4 +33,8 @@
         "prefix": "modx_"
         ,"tables": ["DailyMenuDish"]
     }
+    ,"extensionPackage": {
+        "serviceName": "dailymenu"
+        ,"serviceClass": "DailyMenu"
+    }
 }
